@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <title>Lechuza Soluciones</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+    <center>
+  <section id="splash" class="splash">
+ 
+    <img src="lechuzalogo.jpg" alt="Lechuza Soluciones" class="splash__logo">
+    <h1 class="splash__title">Lechuza <span>Soluciones</span></h1>
+    <p class="splash__tag">CCTV • Soporte • Instalación</p>
+  </section>
+
+
+  <main id="home" class="home hidden">
+    <header class="home__header">
+      <img src="lechuzalogo.png" alt="Logo" class="brand">
+      <h2>Lechuza Soluciones</h2>
+    </header>
+
+    <div class="card">
+      <h3>Estado del reporte</h3>
+      <p class="status"><b>Estado:</b> <span class="status--waiting">Esperando respuesta</span></p>
+      <div class="actions">
+        <button class="btn primary">Crear reporte</button>
+        <button class="btn">Soluciones rápidas</button>
+      </div>
+    </div>
+
+    <nav class="menu">
+      <button class="btn ghost">Inicia sesión</button>
+      <button class="btn ghost">Regístrate</button>
+      <button class="btn ghost">Chat en línea</button>
+    </nav>
+
+    <footer class="tabs">
+      <button class="tab active">⚙️</button>
+      <button class="tab">🔔</button>
+      <button class="tab">👤</button>
+      <button class="tab">💬</button>
+    </footer>
+  </main>
+
+  <script>
+    const splash = document.getElementById('splash');
+    const home = document.getElementById('home');
+    setTimeout(() => {
+      splash.classList.add('fade-out');
+      splash.addEventListener('animationend', () => {
+        splash.style.display = 'none';
+        home.classList.remove('hidden');
+        home.classList.add('fade-in');
+      });
+    }, 2000);
+  </script>
+
+  </center>
+</body>
+</html>
