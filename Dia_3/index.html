@@ -1,52 +1,102 @@
 <!doctype html>
 <html lang="es">
 <head>
+  <meta charset="UTF-8">
   <title>Lechuza Soluciones</title>
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    
+    .splash {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #f0f0f0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      z-index: 10;
+    }
+
+    .splash img {
+      width: 150px;
+      margin-bottom: 20px;
+    }
+
+    .fade-in {
+      animation: fadeIn 1s forwards;
+    }
+
+    .fade-out {
+      animation: fadeOut 1s forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes fadeOut {
+      from { opacity: 1; }
+      to { opacity: 0; }
+    }
+
+    /* HOME */
+    .home {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+      min-height: 100vh;
+      text-align: center;
+    }
+
+    .home__header img {
+      width: 100px;
+      margin-bottom: 10px;
+    }
+
+    .hidden {
+      display: none;
+    }
+  </style>
 </head>
 <body>
 
-    <center>
   <section id="splash" class="splash">
- 
-    <img src="lechuzalogo.jpg" alt="Lechuza Soluciones" class="splash__logo">
-    <h1 class="splash__title">Lechuza <span>Soluciones</span></h1>
-    <p class="splash__tag">CCTV • Soporte • Instalación</p>
+    <img src="lechuzalogo.jpg" alt="Lechuza Soluciones">
+    <h1>Lechuza <span>Soluciones</span></h1>
+    <p>CCTV • Soporte • Instalación</p>
   </section>
 
-
+  
   <main id="home" class="home hidden">
     <header class="home__header">
-      <img src="lechuzalogo.png" alt="Logo" class="brand">
+      <img src="lechuzalogo.jpg" alt="Lechuza Soluciones">
       <h2>Lechuza Soluciones</h2>
     </header>
 
     <div class="card">
-      <h3>Estado del reporte</h3>
-      <p class="status"><b>Estado:</b> <span class="status--waiting">Esperando respuesta</span></p>
-      <div class="actions">
-        <button class="btn primary">Crear reporte</button>
-        <button class="btn">Soluciones rápidas</button>
+      <h3>Opciones principales</h3>
+      <div class="menu-grid">
+        <a href="reporte.html" class="btn primary">📄 Crear Reporte</a>
+        <a href="soluciones.html" class="btn">⚡ Soluciones rápidas</a>
+        <a href="about.html" class="btn">ℹ️ Acerca de</a>
+        <a href="login.html" class="btn ghost">🔑 Iniciar sesión</a>
+        <a href="register.html" class="btn ghost">📝 Registrarse</a>
       </div>
     </div>
-
-    <nav class="menu">
-      <button class="btn ghost">Inicia sesión</button>
-      <button class="btn ghost">Regístrate</button>
-      <button class="btn ghost">Chat en línea</button>
-    </nav>
-
-    <footer class="tabs">
-      <button class="tab active">⚙️</button>
-      <button class="tab">🔔</button>
-      <button class="tab">👤</button>
-      <button class="tab">💬</button>
-    </footer>
   </main>
 
   <script>
     const splash = document.getElementById('splash');
     const home = document.getElementById('home');
+
+    const splashDuration = 1000;
+
     setTimeout(() => {
       splash.classList.add('fade-out');
       splash.addEventListener('animationend', () => {
@@ -54,9 +104,7 @@
         home.classList.remove('hidden');
         home.classList.add('fade-in');
       });
-    }, 2000);
+    }, splashDuration);
   </script>
-
-  </center>
 </body>
 </html>
