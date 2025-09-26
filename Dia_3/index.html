@@ -82,29 +82,53 @@
     <div class="card">
       <h3>Opciones principales</h3>
       <div class="menu-grid">
-        <a href="reporte.html" class="btn primary">📄 Crear Reporte</a>
-        <a href="soluciones.html" class="btn">⚡ Soluciones rápidas</a>
-        <a href="about.html" class="btn">ℹ️ Acerca de</a>
-        <a href="login.html" class="btn ghost">🔑 Iniciar sesión</a>
-        <a href="register.html" class="btn ghost">📝 Registrarse</a>
+        <a href="reporte.html" class="btn primary">Crear Reporte</a>
+        <a href="soluciones.html" class="btn">Soluciones rápidas</a>
+        <a href="about.html" class="btn">Acerca de</a>
+        <a href="login.html" class="btn ghost">Iniciar sesión</a>
+        <a href="register.html" class="btn ghost">Registrarse</a>
       </div>
     </div>
   </main>
 
   <script>
+  function showNotification(text) {
+    const notification = document.createElement('div');
+    notification.textContent = text;
+    notification.className = "notification";
+    document.body.appendChild(notification);
+    setTimeout(() => notification.remove(), 1500);
+  }
+
+  window.onload = () => {
     const splash = document.getElementById('splash');
     const home = document.getElementById('home');
+    const splashDuration = 1500;
 
-    const splashDuration = 1000;
+  
+    const alreadyShown = localStorage.getItem("splashShown");
 
-    setTimeout(() => {
-      splash.classList.add('fade-out');
-      splash.addEventListener('animationend', () => {
-        splash.style.display = 'none';
-        home.classList.remove('hidden');
-        home.classList.add('fade-in');
-      });
-    }, splashDuration);
-  </script>
+    if (!alreadyShown) {
+  
+      showNotification(" Bienvenido a Lechuza Soluciones");
+
+      setTimeout(() => {
+        splash.classList.add('fade-out');
+        splash.addEventListener('animationend', () => {
+          splash.style.display = 'none';
+          home.classList.remove('hidden');
+          home.classList.add('fade-in');
+        });
+      }, splashDuration);
+
+      localStorage.setItem("splashShown", "true");
+    } else {
+      splash.style.display = 'none';
+      home.classList.remove('hidden');
+      home.classList.add('fade-in');
+    }
+  }
+</script>
+
 </body>
 </html>
