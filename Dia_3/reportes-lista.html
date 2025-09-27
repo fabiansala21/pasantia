@@ -1,0 +1,27 @@
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
+  import { getFirestore, collection, getDocs } 
+    from "https://www.gstatic.com/firebasejs/11.0.1/firebase-firestore.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyD7tjDAYzGDiKECae-NVdjveLApsGpLGMM",
+    authDomain: "lechuzaapp.firebaseapp.com",
+    projectId: "lechuzaapp",
+    storageBucket: "lechuzaapp.firebasestorage.app",
+    messagingSenderId: "652647828795",
+    appId: "1:652647828795:web:5aa6f57801e6987234bb1e"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+
+  async function cargarReportes() {
+    const querySnapshot = await getDocs(collection(db, "reportes"));
+    querySnapshot.forEach((doc) => {
+      const data = doc.data();
+      document.body.innerHTML += `<p><b>${data.nombre}</b>: ${data.descripcion} <i>${data.fecha}</i></p>`;
+    });
+  }
+
+  cargarReportes();
+</script>

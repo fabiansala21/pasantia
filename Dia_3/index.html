@@ -27,11 +27,11 @@
     }
 
     .fade-in {
-      animation: fadeIn 1s forwards;
+      animation: fadeIn 3s forwards;
     }
 
     .fade-out {
-      animation: fadeOut 1s forwards;
+      animation: fadeOut 3s forwards;
     }
 
     @keyframes fadeIn {
@@ -44,7 +44,7 @@
       to { opacity: 0; }
     }
 
-    /* HOME */
+  
     .home {
       display: flex;
       flex-direction: column;
@@ -64,6 +64,7 @@
     }
   </style>
 </head>
+
 <body>
 
   <section id="splash" class="splash">
@@ -100,35 +101,10 @@
     setTimeout(() => notification.remove(), 1500);
   }
 
-  window.onload = () => {
-    const splash = document.getElementById('splash');
-    const home = document.getElementById('home');
-    const splashDuration = 1500;
-
   
-    const alreadyShown = localStorage.getItem("splashShown");
-
-    if (!alreadyShown) {
-  
-      showNotification(" Bienvenido a Lechuza Soluciones");
-
-      setTimeout(() => {
-        splash.classList.add('fade-out');
-        splash.addEventListener('animationend', () => {
-          splash.style.display = 'none';
-          home.classList.remove('hidden');
-          home.classList.add('fade-in');
-        });
-      }, splashDuration);
-
-      localStorage.setItem("splashShown", "true");
-    } else {
-      splash.style.display = 'none';
-      home.classList.remove('hidden');
-      home.classList.add('fade-in');
-    }
-  }
 </script>
+<script src="splash.js"></script>
+<script type="module" src="firebase.js"></script>
 
 </body>
 </html>

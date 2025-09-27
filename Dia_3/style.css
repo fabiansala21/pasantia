@@ -64,3 +64,41 @@
   from {opacity: 1; transform: translateY(0);}
   to {opacity: 0; transform: translateY(20px);}
 }
+
+.splash {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #f0f0f0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  z-index: 10;
+}
+
+.splash img {
+  width: 150px;
+  margin-bottom: 20px;
+}
+
+.fade-in {
+  animation: fadeIn 2s forwards;
+}
+
+.fade-out {
+  animation: fadeOut 2s forwards; /* este es el fade */
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeOut {
+  from { opacity: 1; }
+  to { opacity: 0; }
+}
